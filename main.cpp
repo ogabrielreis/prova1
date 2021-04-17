@@ -1,27 +1,43 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
-
 
 string escreverPalavra(int tamanho)
 {
   string aux, palavraEscrita;
   int posicao, letra;
+  int auxInt[2];
   for (int i = 0; i < tamanho; i++)
   {
-    cout << "Digite a letra: \n";
+    cout << "Digite a posição e em seguida a letra: \n";
     cin >> aux;
-    for (int j = 0; j<4; j++)
+
+    for (int i = 0; i<9; i++)
     {
-      if(aux[j-1] == '#')
+      if (aux[1] == i+1)
       {
-        posicao = aux[j];
-      }
-      if (aux[j-1] == '=')
-      {
-        letra = aux[j];
+        auxInt[0] = i+1;
       }
     }
+
+    for (int i = 0; i<4; i++)
+    {
+      if (aux[3] == i+1)
+      {
+        auxInt[1] = i+1;
+      }
+    }
+    cout << aux[1] << endl;
+    cout << auxInt[0] << endl << endl;
+    cout << aux[3] << endl;
+    cout << auxInt[1] << endl << endl;
+
+    posicao = auxInt[0];
+    letra = auxInt[1];
+
+    cout << posicao << endl;
+    cout << letra << endl;
 
     switch(posicao)
     {
@@ -198,34 +214,31 @@ string escreverPalavra(int tamanho)
         break;
       break;
     }
-    cout << "Boa escolha!\n";
   }
-  cout << palavraEscrita;
-  return 0;
+  return palavraEscrita;
 }
 
 
 int main() {
+
   int tamanhoPalavra;
 
   cout << "Bem vindo ao programa de escrita do celular" << endl;
   cout << "Para escrever a palavra, insira quantos dígitos tem (máx 50): \n";
   cin >> tamanhoPalavra;
-  cout << tamanhoPalavra << endl;
-  cout << "Para começarmos, vamos dar algumas instruções: \n";
-  cout << "Para escolher a letra que quer usar use os códigos da tecla do celular, por exemplo: \n";
+  cout << endl << "Para começarmos, vamos dar algumas instruções: \n";
+  cout << "Para escolher a letra que quer usar use os códigos da tecla do celular, por exemplo: \n" << endl;
   cout << "Para digitar o A, escreva '#2=1' \n";
-  cout << "Para o B, escreva '#2=2' \n";
+  cout << "Para o B, escreva '#2=2' \n" << endl << endl;
   cout << "As posições das letras são: \n";
-  cout << "2 = a,b,c \n";
-  cout << "3 = d,e,f \n";
-  cout << "4 = g,h,i \n";
-  cout << "5 = j,k,l \n";
-  cout << "6 = m,n,o \n";
-  cout << "7 = p,q,r,s \n";
-  cout << "8 = t,u,v \n";
-  cout << "9 = w,x,y,z \n";
+  cout << "2 = a, b, c \n";
+  cout << "3 = d, e, f \n";
+  cout << "4 = g, h, i \n";
+  cout << "5 = j, k, l \n";
+  cout << "6 = m, n, o \n";
+  cout << "7 = p, q, r, s \n";
+  cout << "8 = t, u, v \n";
+  cout << "9 = w, x, y, z \n" << endl << endl;
 
-  escreverPalavra(tamanhoPalavra); 
-  
+  cout << escreverPalavra(tamanhoPalavra);
 }
